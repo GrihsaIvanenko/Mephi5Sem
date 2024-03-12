@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <unistd.h>
+
+const int BUFF_SIZE = 1024;
+
+
+int main(int argc, char* argv[]) {
+	int code = system("ps -eo ruser,fuser,comm > /tmp/ps.res");
+	if (code != 0) {
+		perror("");
+	}
+	int fd = open("/tmp/ps.res", O_RDONLY);
+	if (fd == -1) {
+		perror("Failed to open file /tmp/ps.res");
+	}
+	while (true) {
+		
+	}
+	return 0;
+}
